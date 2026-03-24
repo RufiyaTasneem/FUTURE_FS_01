@@ -10,6 +10,7 @@ export function Footer() {
     <footer className="border-t border-slate-700/50 bg-slate-900/30 glass-effect backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
+
           {/* Brand */}
           <div>
             <h3 className="font-bold text-xl gradient-text mb-2">RTM</h3>
@@ -55,6 +56,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="#certificates" className="text-slate-400 hover:text-indigo-400 transition-colors text-sm">
+                  Certificates
+                </Link>
+              </li>
+              <li>
                 <Link href="#achievements" className="text-slate-400 hover:text-indigo-400 transition-colors text-sm">
                   Achievements
                 </Link>
@@ -95,6 +101,7 @@ export function Footer() {
               </Link>
             </div>
           </div>
+
         </div>
 
         {/* Divider */}
@@ -108,6 +115,7 @@ export function Footer() {
             </p>
           </div>
         </div>
+
       </div>
     </footer>
   )
