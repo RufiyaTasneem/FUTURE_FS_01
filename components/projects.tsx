@@ -11,10 +11,13 @@ const projects = [
     id: 1,
     title: 'SkillSwap',
     subtitle: 'Peer-to-Peer Skill Exchange Platform',
-    description: 'Designed and developed the frontend for a skill exchange platform that allows users to discover and connect with others to exchange skills. Built the frontend using React, implemented reusable UI components, and designed intuitive user interaction flows to improve usability.',
+    description:
+      'Designed and developed the frontend for a skill exchange platform that allows users to discover and connect with others to exchange skills. Built the frontend using React, implemented reusable UI components, and designed intuitive user interaction flows to improve usability.',
     tags: ['React', 'UI Components', 'Figma', 'Frontend'],
-    github: '#',
-    demo: '#',
+    github:
+      'https://github.com/RufiyaTasneem/SkillSwap-Peer-to-Peer-Skill-Exchange-Platform',
+    demo:
+      'https://skill-swap-peer-to-peer-skill-excha.vercel.app/',
     color: 'from-indigo-500 to-blue-500',
   },
 ]
@@ -45,7 +48,10 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+    <section
+      id="projects"
+      className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative"
+    >
       {/* Background glow */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -58,6 +64,7 @@ export function Projects() {
         />
       </div>
 
+      {/* Heading */}
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: -20 }}
@@ -65,7 +72,10 @@ export function Projects() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl sm:text-5xl font-bold gradient-text mb-4">Featured Projects</h2>
+        <h2 className="text-4xl sm:text-5xl font-bold gradient-text mb-4">
+          Featured Projects
+        </h2>
+
         <motion.div
           className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto"
           initial={{ width: 0 }}
@@ -73,6 +83,7 @@ export function Projects() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         />
+
         <motion.p
           className="text-slate-400 mt-4 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
@@ -84,6 +95,7 @@ export function Projects() {
         </motion.p>
       </motion.div>
 
+      {/* Projects Grid */}
       <motion.div
         ref={ref}
         className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -101,55 +113,50 @@ export function Projects() {
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <Card className="glass-effect-premium overflow-hidden group h-full flex flex-col">
-                {/* Animated colored header */}
+
+                {/* Top Gradient Line */}
                 <motion.div
-                  className={`h-2 bg-gradient-to-r ${project.color} glow-effect`}
-                  animate={{
-                    boxShadow: [
-                      `0 0 10px rgba(99, 102, 241, 0.3)`,
-                      `0 0 20px rgba(99, 102, 241, 0.6)`,
-                      `0 0 10px rgba(99, 102, 241, 0.3)`,
-                    ],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  className={`h-2 bg-gradient-to-r ${project.color}`}
                 />
 
                 <div className="p-6 flex flex-col h-full">
-                  <motion.h3
-                    className="text-2xl font-bold text-white mb-1 group-hover:text-indigo-400 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {project.title}
-                  </motion.h3>
-                  <p className="text-indigo-400 text-sm mb-4">{project.subtitle}</p>
 
-                  <p className="text-slate-300 mb-6 flex-grow leading-relaxed">
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-indigo-400 transition">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-indigo-400 text-sm mb-4">
+                    {project.subtitle}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-slate-300 mb-6 flex-grow">
                     {project.description}
                   </p>
 
                   {/* Tags */}
-                  <motion.div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, index) => (
-                      <motion.span
+                      <span
                         key={index}
-                        className="px-3 py-1 rounded-full glass-effect-premium text-xs text-slate-300 cursor-default"
-                        whileHover={{
-                          scale: 1.1,
-                          boxShadow: '0 0 20px rgba(99, 102, 241, 0.4)',
-                        }}
-                        transition={{ type: 'spring', stiffness: 400 }}
-                        initial={{ opacity: 0, y: -5 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
+                        className="px-3 py-1 rounded-full text-xs bg-slate-800 text-slate-300"
                       >
                         {tag}
-                      </motion.span>
+                      </span>
                     ))}
-                  </motion.div>
+                  </div>
 
-                  {/* Action Buttons */}
+                  {/* ✅ FIXED BUTTONS */}
                   <div className="flex gap-3 pt-4 border-t border-slate-700/50">
-                    <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+
+                    {/* GitHub */}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
                       <Button
                         variant="ghost"
                         size="sm"
@@ -158,8 +165,15 @@ export function Projects() {
                         <Github size={16} className="mr-2" />
                         Code
                       </Button>
-                    </motion.div>
-                    <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    </a>
+
+                    {/* Demo */}
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
                       <Button
                         variant="ghost"
                         size="sm"
@@ -168,7 +182,8 @@ export function Projects() {
                         <ExternalLink size={16} className="mr-2" />
                         Demo
                       </Button>
-                    </motion.div>
+                    </a>
+
                   </div>
                 </div>
               </Card>
